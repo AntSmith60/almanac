@@ -1,0 +1,136 @@
+# ALMANAC - a sky exploration app
+![Almanac, screenshot](almanac-screenshot.png)
+## Using the Almanac
+astrophotography.almanac.almanac:WORLD
+### App Dialogues
+#### Set-up
+astrophotography.almanac.almanac_ui.BulkDataControlPanel:AFFORDANCE
+#### Explore
+astrophotography.almanac.almanac_ui.QueryControlPanel:AFFORDANCE
+### Burnt-in Defaults
+astrophotography.almanac.almanac_ui.AppState:KNOWLEDGE
+---
+---
+## About the source code
+astrophotography.almanac.almanac.__name__:THROUGHLINE
+astrophotography.almanac.timeframes:THROUGHLINE
+astrophotography.almanac.catalogue:THROUGHLINE
+astrophotography.almanac.observations:THROUGHLINE
+astrophotography.almanac.almanac_ui:THROUGHLINE
+astrophotography.almanac.base_ui:THROUGHLINE
+astrophotography.almanac.screen_ui:THROUGHLINE
+astrophotography.almanac.plotter:THROUGHLINE
+---
+---
+## Script Modules
+### Calculations and Data
+#### Timeframes
+astrophotography.almanac.timeframes.TimeFrame:AFFORDANCE
+astrophotography.almanac.timeframes.TimeFrame.sample_window:SKILL
+astrophotography.almanac.timeframes.TimeFrame._get_time_series:SKILL
+astrophotography.almanac.timeframes.TimeFrame._utc_anchor:SKILL
+astrophotography.almanac.timeframes.datetime:CONTINUUM
+astrophotography.almanac.timeframes.numpy:CONTINUUM
+astrophotography.almanac.timeframes.skyfield.api:CONTINUUM
+astrophotography.almanac.timeframes.zoneinfo:CONTINUUM
+#### Catalogues
+astrophotography.almanac.catalogue.Catalogue:AFFORDANCE
+astrophotography.almanac.catalogue.Catalogue._precheck_derived_cols:SKILL
+astrophotography.almanac.catalogue.Catalogue._precheck_source_cols:SKILL
+astrophotography.almanac.catalogue.Catalogue._raw_type_check:MECHANISM
+astrophotography.almanac.catalogue.Catalogue._rename_col:SKILL
+astrophotography.almanac.catalogue.Catalogue._cleanse_nan:MECHANISM
+astrophotography.almanac.catalogue.Catalogue._col_splitter:MECHANISM
+astrophotography.almanac.catalogue.Catalogue._process_skypos:MECHANISM
+#### Constellations
+astrophotography.almanac.catalogue.Constellations:AFFORDANCE
+astrophotography.almanac.catalogue.Constellations.get_visible_segments_and_labels:MECHANISM
+astrophotography.almanac.catalogue.RawType:KNOWLEDGE
+astrophotography.almanac.catalogue.astropy.coordinates:CONTINUUM
+astrophotography.almanac.catalogue.enum:CONTINUUM
+astrophotography.almanac.catalogue.numpy:CONTINUUM
+astrophotography.almanac.catalogue.pandas:CONTINUUM
+#### Observations
+astrophotography.almanac.observations.Observatory:AFFORDANCE
+astrophotography.almanac.observations.Observables:AFFORDANCE
+astrophotography.almanac.observations.Observables.catalogue_planets:MECHANISM
+astrophotography.almanac.observations.Observables.catalogue_v50:MECHANISM
+astrophotography.almanac.observations.Observables.catalogue_messier:MECHANISM
+astrophotography.almanac.observations.Observables.catalogue_ngc2000:MECHANISM
+astrophotography.almanac.observations.Observables.num_viewers:KNOWLEDGE
+astrophotography.almanac.observations.numpy:CONTINUUM
+astrophotography.almanac.observations.pandas:CONTINUUM
+astrophotography.almanac.observations.skyfield.api:CONTINUUM
+astrophotography.almanac.observations.skyfield.data:CONTINUUM
+astrophotography.almanac.observations.time:CONTINUUM
+---
+astrophotography.almanac.observe.Observe:AFFORDANCE
+astrophotography.almanac.observe.Observe.observations:SKILL
+astrophotography.almanac.observe.Observe.get_altaz_window_for_all:SKILL
+astrophotography.almanac.observe.Observe.get_positional_mask:SKILL
+astrophotography.almanac.observe.Observe.get_magnitude_mask:SKILL
+astrophotography.almanac.observe.chunk_dataframe:SKILL
+astrophotography.almanac.observe.unpack_and_compute:SKILL
+astrophotography.almanac.observe.numpy:CONTINUUM
+astrophotography.almanac.observe.os:CONTINUUM
+astrophotography.almanac.observe.Loader:CONTINUUM
+astrophotography.almanac.observe.Star:CONTINUUM
+astrophotography.almanac.observe.time:CONTINUUM
+astrophotography.almanac.observe.concurrent.futures:CONTINUUM
+---
+---
+### Underlying UI
+#### Base UI
+astrophotography.almanac.base_ui.DialControl:MECHANISM
+astrophotography.almanac.base_ui.LocationEntryDialog:AFFORDANCE
+astrophotography.almanac.base_ui.DialControl.get_value:MECHANISM
+astrophotography.almanac.base_ui.DialControl.set_value:MECHANISM
+astrophotography.almanac.base_ui.DialControl.display_value:MECHANISM
+astrophotography.almanac.base_ui.DialControl.get_scaled_value:MECHANISM
+astrophotography.almanac.base_ui.DialControl._reset_dial._update:BEHAVIOUR
+astrophotography.almanac.base_ui.DialControl._reset_dial:BEHAVIOUR
+astrophotography.almanac.base_ui.ClickableLCD:MECHANISM
+astrophotography.almanac.base_ui.DialPairControl:MECHANISM
+astrophotography.almanac.base_ui.UIBuilder:MECHANISM
+astrophotography.almanac.base_ui.PyQt5.QtWidgets:CONTINUUM
+---
+#### Screen UI
+astrophotography.almanac.screen_ui.DraggableCanvas:MECHANISM
+astrophotography.almanac.screen_ui.ViewportResizeDialog:MECHANISM
+astrophotography.almanac.screen_ui.ScrollablePlotWindow:AFFORDANCE
+astrophotography.almanac.screen_ui.ScrollablePlotWindow.set_viewport:MECHANISM
+astrophotography.almanac.screen_ui.ScrollablePlotWindow.save_visible_canvas:MECHANISM
+astrophotography.almanac.screen_ui.ScrollablePlotWindow.refresh_canvas:MECHANISM
+astrophotography.almanac.screen_ui.ScrollablePlotWindow._set_to_res:SKILL
+astrophotography.almanac.screen_ui.ScrollablePlotWindow._stamp_north_arrow:SKILL
+astrophotography.almanac.screen_ui.ScrollablePlotWindow._create_north_arrow_pixmap:SKILL
+astrophotography.almanac.screen_ui.matplotlib.backends.backend_qt5agg:CONTINUUM
+astrophotography.almanac.screen_ui.numpy:CONTINUUM
+astrophotography.almanac.screen_ui.PyQt5.QtWidgets:CONTINUUM
+---
+#### The Almanac UI
+This module holds the 2 key dialogues and the AppState as discussed earlier.
+astrophotography.almanac.almanac_ui.datetime:CONTINUUM
+---
+---
+### Application
+#### The plot
+astrophotography.almanac.plotter.Plotter:AFFORDANCE
+astrophotography.almanac.plotter.Plotter.plot:MECHANISM
+astrophotography.almanac.plotter.Plotter.save_canvas:MECHANISM
+astrophotography.almanac.plotter.Plotter.close:SKILL
+astrophotography.almanac.plotter.Plotter._set_colours:MECHANISM
+astrophotography.almanac.plotter.Plotter.set_facecolour:MECHANISM
+astrophotography.almanac.plotter.Plotter.set_gridcolour:MECHANISM
+astrophotography.almanac.plotter.Plotter.set_grid_state:MECHANISM
+astrophotography.almanac.plotter.Plotter.set_new_size:MECHANISM
+astrophotography.almanac.plotter.Plotter.set_rotation:MECHANISM
+astrophotography.almanac.plotter.matplotlib:CONTINUUM
+astrophotography.almanac.plotter.numpy:CONTINUUM
+---
+#### Main entry point
+astrophotography.almanac.almanac.AbortableDialog:MECHANISM
+astrophotography.almanac.almanac.DawnTreader:MECHANISM
+astrophotography.almanac.almanac.PyQt5.QtWidgets:CONTINUUM
+astrophotography.almanac.almanac.sys:CONTINUUM
+astrophotography.almanac.almanac.time:CONTINUUM
